@@ -1,6 +1,7 @@
 package no.hvl.dat100.javel.oppgave2;
 
-import no.hvl.dat100.javel.oppgave1.DayPowerData;
+import no.hvl.dat100.javel.oppgave2.MonthPowerData;
+import no.hvl.dat100.javel.oppgave2.MonthlyPower;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -17,6 +18,19 @@ public class MonthMain {
         System.out.println("==============");
         System.out.println();
 
+        System.out.println("USAGE");
+        MonthlyPower.print_PowerUsage(power_usage_month);
+        System.out.println();
+
+        System.out.println("PRICES");
+        MonthlyPower.print_PowerPrices(power_prices_month);
+        System.out.println();
+
+        System.out.println("TOTAL USE");
+        System.out.printf("%.2f kWh", MonthlyPower.computePowerUsage(power_usage_month));
+        System.out.println();
+        
+        
         /*
         TODO
 
