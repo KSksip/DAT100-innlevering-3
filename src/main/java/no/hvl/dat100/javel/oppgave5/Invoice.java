@@ -1,35 +1,62 @@
 package no.hvl.dat100.javel.oppgave5;
 
 import no.hvl.dat100.javel.oppgave3.Customer;
+import no.hvl.dat100.javel.oppgave3.PowerAgreementType;
 import no.hvl.dat100.javel.oppgave2.MonthlyPower;
-
-import java.util.Arrays;
 
 public class Invoice {
 
-    private Customer c; // customer associated with this invoice
+    private Customer customer; // customer associated with this invoice
     private String month; // month that the invoice covers
     private double[][] usage; // power usage this month (per day and per hour)
-    private double[][] prices; // power prices for this month
+    private double[][] powerPrices; // power prices for this month
 
     private double amount; // power price for this month
 
 
-    public Invoice(Customer c, String month, double[][] usage, double[][] power_prices) {
-
-        // TODO - konstruktør
-
+    public Invoice(Customer customer, String month, double[][] usage, double[][] powerPrices) {
+        this.customer = customer;
+        this.month = month;
+        this.usage = usage;
+        this.powerPrices = powerPrices;
     }
 
     public void computeAmount() {
+        PowerAgreementType powerAgreement = this.customer.getAgreement();
+        
+        switch(powerAgreement) {
+            case PowerAgreementType.SPOTPRICE: {
+                this.amount = MonthlyPower.computeSpotPrice(usage, powerPrices);
+                return;
+            }
 
-        // TODO
+            case PowerAgreementType.POWERSUPPORT: {
 
+                this.amount = MonthlyPower.computeSpotPrice(usage, powerPrices);
+                this.amount -= MonthlyPower.computePowerSupport(usage, powerPrices);
+                return;
+            }
+
+            case PowerAgreementType.NORGESPRICE: {
+                this.amount = MonthlyPower.computeNorgesPrice(usage);
+                return;
+            }
+        }
     }
 
     public void printInvoice() {
+        String formattedIvoice = String.format("""
+        %s,
 
-        // TODO
+        month:      %s,
+        usage:      %.2f kWh,
+        fee:        %.2f NOK""",
+            customer.toString(),
+            month,
+            MonthlyPower.computePowerUsage(usage),
+            amount
+        );
 
+        System.out.println(formattedIvoice);
     }
 }

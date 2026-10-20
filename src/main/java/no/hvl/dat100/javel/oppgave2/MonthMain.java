@@ -18,26 +18,25 @@ public class MonthMain {
         System.out.println("==============");
         System.out.println();
 
-        System.out.println("USAGE");
-        MonthlyPower.print_PowerUsage(power_usage_month);
-        System.out.println();
+        System.out.println("\nPOWER USAGE");
+        MonthlyPower.printPowerUsage(power_usage_month);
 
-        System.out.println("PRICES");
-        MonthlyPower.print_PowerPrices(power_prices_month);
-        System.out.println();
+        System.out.println("\nPOWER PRICES");
+        MonthlyPower.printPowerPrices(power_prices_month);
 
-        System.out.println("TOTAL USE");
-        System.out.printf("%.2f kWh", MonthlyPower.computePowerUsage(power_usage_month));
-        System.out.println();
+        System.out.println("\nMONTHLY POWER USAGE");
+        System.out.printf("%.2f kWh\n", MonthlyPower.computePowerUsage(power_usage_month));
         
+        System.out.println("\nTHRESHOLD EXCEEDED (120 kWh)");
+        System.out.println(MonthlyPower.exceedThreshold(power_usage_month, 120.00));
+
+        System.out.println("\nSPOT PRICE");
+        System.out.printf("%.2f NOK\n", MonthlyPower.computeSpotPrice(power_usage_month, power_prices_month));
         
-        /*
-        TODO
+        System.out.println("\nSUPPORT");
+        System.out.printf("%.2f NOK\n", MonthlyPower.computePowerSupport(power_usage_month, power_prices_month));
 
-         Write code that tests the methods you implement in the MonthlyPower class
-         Remember to teste the methods as you implement them
-         Remember to also to check that you get the expected results
-         */
-
+        System.out.println("\nNORGESPRICE");
+        System.out.printf("%.2f NOK\n", MonthlyPower.computeNorgesPrice(power_usage_month));
     }
 }

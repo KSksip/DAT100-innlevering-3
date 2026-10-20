@@ -18,12 +18,24 @@ public class CustomerMain {
             PowerAgreementType.SPOTPRICE
         );
 
+        customer.setName("Jane Doe");
+        customer.setEmail("JaneDoe@example.com");
+        customer.setCustomerId(1);
+        customer.setAgreement(PowerAgreementType.NORGESPRICE);
+
+        System.out.println("\nCUSTOMER IDENTIFIER");
+        System.out.println(customer.getCustomerId());
+ 
+        System.out.println("\nCUSTOMER EMAIL");
+        System.out.println(customer.getEmail());
+        
+        System.out.println("\nCUSTOMER NAME");
+        System.out.println(customer.getName());
+        
+        System.out.println("\nCUSTOMER AGREEMENT");
+        System.out.println(customer.getAgreement());
+
+        System.out.println("\nFULL CUSTOMER DETAILS");
         System.out.println(customer.toString());
-        /*
-        TODO
-
-         Write code that creates a Customer object and teste the methods implemented in the class
-
-        */
     }
 }

@@ -21,24 +21,25 @@ public class DayMain {
         System.out.println("PRICES");
         DailyPower.printPowerPrices(powerprices_day);
 
-        System.out.println("\n\nUSAGE");
+        System.out.println("\nUSAGE");
         DailyPower.printPowerUsage(powerusage_day);
 
-        
-        System.out.println("\n\nDAILY CONSUMPTION");
+        System.out.println("\nDAILY CONSUMPTION");
         System.out.printf("%.2f kWh \n", DailyPower.computePowerUsage(powerusage_day));        
         
-        System.out.println("\n\nSPOT PRICE");
+        System.out.println("\nSPOT PRICE");
         System.out.printf("%.2f NOK \n", DailyPower.computeSpotPrice(powerusage_day, powerprices_day));
-
+    
+        System.out.println("\nSUPPORT");
+        System.out.printf("%.2f NOK \n", DailyPower.computePowerSupport(powerusage_day, powerprices_day));
         
-        /*        
-        TODO
-
-         Write code that tests the methods you implement in the DailyPower class
-         Remember to teste the methods as you implement them
-         Remember to also to check that you get the expected results
-         */
-
+        System.out.println("\nNORGESPRICE");
+        System.out.printf("%.2f NOK \n", DailyPower.computeNorgesPrice(powerusage_day));
+    
+        System.out.println("\nPEAK POWER USAGE");
+        System.out.printf("%.2f NOK \n", DailyPower.findPeakUsage(powerusage_day));
+        
+        System.out.println("\nAVG POWER USAGE");
+        System.out.printf("%.2f NOK \n", DailyPower.findAvgPower(powerusage_day));
     }
 }

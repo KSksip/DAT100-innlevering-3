@@ -4,13 +4,13 @@ public class Customer {
 
     String name;
     String email;
-    int customer_id;
+    int customerId;
     PowerAgreementType agreement;
 
-    public Customer(String name, String email, int customer_id, PowerAgreementType agreement) {
+    public Customer(String name, String email, int customerId, PowerAgreementType agreement) {
         this.name = name;
         this.email = email;
-        this.customer_id = customer_id;
+        this.customerId = customerId;
         this.agreement = agreement; 
     }
 
@@ -23,8 +23,8 @@ public class Customer {
         this.email = email;
     }
 
-    public void setCustomerId(int customer_id) {
-        this.customer_id = customer_id;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public void setAgreement(PowerAgreementType agreement) {
@@ -33,32 +33,32 @@ public class Customer {
 
     // GETTERS
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public int getCustomerId() {
-        return customer_id;
+        return this.customerId;
     }
 
     public PowerAgreementType getAgreement() {
-        return agreement;
+        return this.agreement;
     }
 
     // TO STRING
     public String toString() {
         return String.format("""
-        name: %s,
-        email: %s,
-        customer_id: %d,
-        agreement: %s
-        """,
+        name:       %s,
+        email:      %s,
+        customerId: %d,
+        agreement:  %s"""
+        ,
             name,
             email,
-            customer_id,
+            customerId,
             agreement
         );
     }

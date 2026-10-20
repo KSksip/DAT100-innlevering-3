@@ -59,6 +59,10 @@ public class Customers {
         Customer removedCustomer = null;
         
         for (int i = 0; i < this.customers.length; i++) {
+            if(this.customers[i] == null){
+                continue;
+            }
+            
             if(this.customers[i].getCustomerId() == customer_id){
                 removedCustomer = this.customers[i];
                 this.customers[i] = null;

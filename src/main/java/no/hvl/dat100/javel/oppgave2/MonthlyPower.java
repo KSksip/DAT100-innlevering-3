@@ -5,7 +5,7 @@ import no.hvl.dat100.javel.oppgave1.DailyPower;
 public class MonthlyPower {
 
     // a) print power usage for a month
-    public static void print_PowerUsage(double[][] usage) {
+    public static void printPowerUsage(double[][] usage) {
 
         for (int i = 0; i < usage.length; i++) {
             System.out.printf("Day " + (i+1) + ": ");
@@ -15,7 +15,7 @@ public class MonthlyPower {
     }
 
     // b) print power prices for a month
-    public static void print_PowerPrices(double[][] prices) {
+    public static void printPowerPrices(double[][] prices) {
 
         for (int i = 0; i < prices.length; i++) {
             System.out.printf("Day " + (i+1) + ": ");
@@ -40,7 +40,7 @@ public class MonthlyPower {
     public static boolean exceedThreshold(double[][] powerusage, double threshold) {
         double usage = computePowerUsage(powerusage);
 
-        boolean exceeded = usage == threshold; //highkey inaccurate
+        boolean exceeded = usage >= threshold;
 
         return exceeded;
     }

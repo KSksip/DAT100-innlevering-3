@@ -8,6 +8,7 @@ public class DailyPower {
         for (double price : prices) {
             System.out.printf("%.2f NOK ", price); 
         }
+        System.out.print("\n");
     }
 
     // b) print power usage during a day
@@ -16,6 +17,7 @@ public class DailyPower {
         for (double use : usage) {
             System.out.printf("%.2f kWh ", use); 
         }
+        System.out.print("\n");
     } 
 
     // c) compute power usage for a single day
@@ -50,8 +52,8 @@ public class DailyPower {
 
         double support = 0;
 
-        if(usage >= THRESHOLD){
-            return (usage - THRESHOLD) * PERCENTAGE; //??
+        if(price >= THRESHOLD){
+            support = usage * (price - THRESHOLD) * PERCENTAGE; //??
         }
 
         return support;
@@ -62,7 +64,7 @@ public class DailyPower {
 
         double support = 0;
 
-        for (int i = 0; i < 24; i++) {
+        for (int i = 0; i < usage.length; i++) {
             support += getSupport(usage[i], prices[i]);
         }
 
