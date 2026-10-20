@@ -11,7 +11,6 @@ public class CustomerMain {
         System.out.println("==============");
         System.out.println();
         
-
         Customer customer = new Customer(
             "John Doe",
             "JohnDoe@example.com",

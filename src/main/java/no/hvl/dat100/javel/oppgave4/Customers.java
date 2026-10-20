@@ -9,7 +9,7 @@ public class Customers {
     // a) Complete constructor
     public Customers(int size) {
 
-        // TODO
+        this.customers = new Customer[size];
 
     }
 
@@ -19,7 +19,11 @@ public class Customers {
 
         int count = 0;
 
-        // TODO
+        for (Customer customer : customers) {
+            if(customer != null){
+                count++;
+            }
+        }
 
         return count;
     }
@@ -27,41 +31,53 @@ public class Customers {
     // c) return reference to customer with given id (if exists)
     public Customer getCustomer(int customer_id) {
 
-        boolean funnet = false;
-        Customer c = null;
+        for (Customer customer : customers) {
+            if(customer.getCustomerId() == customer_id && customer != null){
+                return customer;                
+            }
+        }
 
-        // TODO
-
-        return c;
+        return null;
     }
 
     // d) add a customer to the reference table
-    public boolean addCustomer(Customer c) {
+    public boolean addCustomer(Customer newCustomer) {
 
-        boolean inserted = false;
+        for (int i = 0; i < this.customers.length; i++) {
+            if(this.customers[i] == null){
+                this.customers[i] = newCustomer;
+                return true;
+            }
+        }
 
-        // TODO
-
-        return inserted;
+        return false;
     }
 
     // e) remove customer with given id from reference table
     public Customer removeCustomer(int customer_id) {
 
-        boolean deleted = false;
-        Customer c = null;
+        Customer removedCustomer = null;
+        
+        for (int i = 0; i < this.customers.length; i++) {
+            if(this.customers[i].getCustomerId() == customer_id){
+                removedCustomer = this.customers[i];
+                this.customers[i] = null;
+            }            
+        }
 
-        // TODO
-
-        return c;
+        return removedCustomer;
     }
 
     // f) return reference table with all customers
     public Customer[] getCustomers() {
 
-        Customer[] customers = null;
-
-        // TODO
+        Customer[] customers = new Customer[this.countNonNull()];
+        
+        for (int i = 0; i < this.customers.length; i++) {
+            if(this.customers[i] != null){
+                customers[i] = this.customers[i];
+            }
+        }
 
         return customers;
     }
