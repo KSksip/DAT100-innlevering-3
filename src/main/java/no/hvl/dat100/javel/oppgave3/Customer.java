@@ -51,10 +51,10 @@ public class Customer {
     // TO STRING
     public String toString() {
         return String.format("""
-            name %s\n
-            email %s\n
-            customer_id %d\n
-            agreement %s
+        name: %s,
+        email: %s,
+        customer_id: %d,
+        agreement: %s
         """,
             name,
             email,

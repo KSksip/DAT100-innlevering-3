@@ -1,6 +1,6 @@
 package no.hvl.dat100.javel.oppgave3;
 
-import no.hvl.dat100.javel.oppgave4.Customers;
+import no.hvl.dat100.javel.oppgave3.Customer;
 
 public class CustomerMain {
 
@@ -10,7 +10,16 @@ public class CustomerMain {
         System.out.println("OPPGAVE 3");
         System.out.println("==============");
         System.out.println();
+        
 
+        Customer customer = new Customer(
+            "John Doe",
+            "JohnDoe@example.com",
+            0,
+            PowerAgreementType.SPOTPRICE
+        );
+
+        System.out.println(customer.toString());
         /*
         TODO
 
